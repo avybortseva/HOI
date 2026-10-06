@@ -4,9 +4,12 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class SynchronizedListMain {
-    public static final int countSortThreads = 3;
-    private static final long stepDelay = 100;
-    private static final long insideStepDelay = 100;
+    public static final int countSortThreads = 4;
+    private static final long stepDelay = 300;
+    private static final long insideStepDelay = 300;
+
+    private static final boolean enableTimer = true;
+    private static final long timerMS = 60000;
 
     public static final AtomicLong stepCounter = new AtomicLong(0);
 
@@ -30,6 +33,20 @@ public class SynchronizedListMain {
             });
             newSortThread.setDaemon(true);
             newSortThread.start();
+        }
+
+        if (enableTimer) {
+            Thread timerThread = new Thread(() -> {
+                try {
+                    Thread.sleep(timerMS);
+                    System.out.println("Step count: " + stepCounter.get());
+                    System.exit(0);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+            });
+            timerThread.setDaemon(true);
+            timerThread.start();
         }
 
         Scanner sc = new Scanner(System.in);
