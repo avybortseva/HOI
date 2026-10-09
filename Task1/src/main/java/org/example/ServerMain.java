@@ -3,7 +3,10 @@ package org.example;
 import org.example.cryptoService.CryptoService;
 import org.example.networkService.NetworkServer;
 import org.example.stateManager.KeyManager;
-
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.security.KeyFactory;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.KeyPair;
 import java.security.PrivateKey;
 
@@ -21,8 +24,9 @@ public class ServerMain {
 
         try {
             CryptoService cryptoService = new CryptoService();
-            KeyPair caKeyPair = cryptoService.generateKeyPair(2048);
-            PrivateKey serverPrivateKey = caKeyPair.getPrivate();
+            byte[] keyBytes = Files.readAllBytes(Paths.get("ca.key"));
+            PrivateKey serverPrivateKey = KeyFactory.getInstance("RSA")
+                    .generatePrivate(new PKCS8EncodedKeySpec(keyBytes));
             KeyManager keyManager = new KeyManager(
                 genThreads, transferThreads, cryptoService, issuerName, serverPrivateKey);
             NetworkServer server = new NetworkServer(port, keyManager);

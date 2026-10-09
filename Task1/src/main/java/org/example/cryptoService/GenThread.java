@@ -3,11 +3,9 @@ package org.example.cryptoService;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.nio.channels.SocketChannel;
 import java.security.KeyPair;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
-import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CompletableFuture;
 
 public class GenThread implements Runnable {
@@ -39,7 +37,7 @@ public class GenThread implements Runnable {
                 resultFuture.complete(responseData);
             }
         } catch (Exception e) {
-            System.err.println("Generation error from" + clientName + ": " + e.getMessage());
+            System.err.println("Generation error from " + clientName + ": " + e.getMessage());
             if (resultFuture != null) {
                 resultFuture.completeExceptionally(e);
             }
