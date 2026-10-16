@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -32,10 +34,26 @@ public class ConcurrentLinkedList implements Iterable<String> {
         }
     }
 
+
     @Override
     public Iterator<String> iterator() {
         return new Iterator<String>() {
-            private Node current = head.next;
+            private Node current = lockFirst();
+
+            private Node lockFirst() {
+                head.lock.lock();
+                try {
+                    Node first = head.next;
+
+                    if (first != null) {
+                        first.lock.lock();
+                    }
+
+                    return first;
+                } finally {
+                    head.lock.unlock();
+                }
+            }
 
             @Override
             public boolean hasNext() {
@@ -44,12 +62,25 @@ public class ConcurrentLinkedList implements Iterable<String> {
 
             @Override
             public String next() {
-                String val = current.value;
-                current = current.next;
-                return val;
+                if (current == null) {
+                    throw new java.util.NoSuchElementException();
+                }
+
+                Node old = current;
+                String value = old.value;
+                Node following = old.next;
+
+                if (following != null) {
+                    following.lock.lock();
+                }
+                current = following;
+                old.lock.unlock();
+
+                return value;
             }
         };
     }
+
 
     public int bubbleSort1(long stepDelay, long insideStepDelay) {
         int steps = 0;
