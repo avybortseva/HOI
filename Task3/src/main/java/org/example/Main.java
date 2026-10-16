@@ -1,8 +1,6 @@
-
 package org.example;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -19,13 +17,13 @@ public class Main {
 
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
-    private static final HttpClient HTTP_CLIENT =
+    private static final HttpClient clientHTTP =
             HttpClient.newHttpClient();
 
-    private static final Set<String> VISITED =
+    private static final Set<String> visited =
             ConcurrentHashMap.newKeySet();
 
-    private static final List<String> MESSAGES =
+    private static final List<String> messages =
             new java.util.concurrent.CopyOnWriteArrayList<>();
 
     private static ExecutorService executor;
@@ -37,9 +35,7 @@ public class Main {
     ) {}
 
     public static void main(String[] args) {
-        int port = args.length > 0
-                ? Integer.parseInt(args[0])
-                : 8080;
+        int port = args.length > 0 ? Integer.parseInt(args[0]) : 8080;
 
         serverAddress = URI.create("http://localhost:" + port + "/");
 
@@ -48,12 +44,12 @@ public class Main {
 
             crawl("/").join();
 
-            MESSAGES.stream()
+            messages.stream()
                     .sorted()
                     .forEach(System.out::println);
 
-            System.out.println("All messages: " + MESSAGES.size());
-            System.out.println("All visited paths: " + VISITED.size());
+            System.out.println("All messages: " + messages.size());
+            System.out.println("All visited paths: " + visited.size());
         } catch (Exception e) {
             System.err.println("Running error: " + e.getMessage());
             e.printStackTrace();
@@ -61,14 +57,14 @@ public class Main {
     }
 
     private static CompletableFuture<Void> crawl(String path) {
-        if (!VISITED.add(path)) {
+        if (!visited.add(path)) {
             return CompletableFuture.completedFuture(null);
         }
 
         return CompletableFuture
                 .supplyAsync(() -> fetch(path), executor)
                 .thenCompose(response -> {
-                    MESSAGES.add(response.message());
+                    messages.add(response.message());
 
                     List<CompletableFuture<Void>> tasks =
                             response.successors().stream()
@@ -96,7 +92,7 @@ public class Main {
                 .build();
 
         try {
-            HttpResponse<String> response = HTTP_CLIENT.send(
+            HttpResponse<String> response = clientHTTP.send(
                     request,
                     HttpResponse.BodyHandlers.ofString()
             );
