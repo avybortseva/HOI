@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a487a56-c97f-49aa-896a-54d7cc8f814b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HOI.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/ClojureProjectResolveSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/buildSystemProperties.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/clj-kondo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/libraries/Leiningen__nrepl_nrepl_1_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/libraries/Leiningen__org_clojure_clojure_1_12_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/libraries/Leiningen__org_clojure_core_specs_alpha_0_4_74.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/libraries/Leiningen__org_clojure_spec_alpha_0_5_238.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/libraries/Leiningen__org_nrepl_incomplete_0_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/cl1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/doc/intro.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/project.clj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cl1/src/cl1/core.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LGySJWOd7tszgWV9dVMyS1UXX2" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/avybo/nsu/Java/HOI"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="Babashka" factoryName="BabashkaLocalRepl" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="bbPath" value="" />
+      <setting name="parameters" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Local" activateToolWindowBeforeRun="false">
+      <option name="configVersion" value="1" />
+      <option name="options" />
+      <option name="profiles" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
+      <setting name="displayName" value="" />
+      <setting name="host" value="" />
+      <setting name="port" value="0" />
+      <setting name="replType" value="SOCKET" />
+      <setting name="configType" value="SPECIFY" />
+      <setting name="replPortFileType" value="STANDARD" />
+      <setting name="customPortFile" value="" />
+      <setting name="fixLineNumbers" value="false" />
+      <setting name="useHeartbeat" value="true" />
+      <setting name="focusEditor" value="false" />
+      <setting name="urlFile" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a487a56-c97f-49aa-896a-54d7cc8f814b" name="Changes" comment="" />
+      <created>1793094701453</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793094701453</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
