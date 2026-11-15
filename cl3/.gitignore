@@ -1,0 +1,24 @@
+# Leiningen build output and local configuration
+/target/
+/classes/
+/checkouts/
+/profiles.clj
+/pom.xml
+/pom.xml.asc
+*.jar
+*.class
+/.lein-*
+/.nrepl-port
+/.prepl-port
+
+# Clojure tooling caches
+/.cpcache/
+/.clj-kondo/.cache/
+/.lsp/.cache/
+
+# IntelliJ IDEA
+/.idea/
+*.iml
+
+# macOS
+.DS_Store
