@@ -2,7 +2,9 @@
 
 (defn parallel-filter
   ([pred coll]
+
    (parallel-filter pred coll {}))
+
   ([pred coll {:keys [block-size parallelism]
                :or {block-size 256
                     parallelism (max 1 (min 8 (.availableProcessors
@@ -11,6 +13,7 @@
      (when-not (and (integer? v) (pos? v))
        (throw (IllegalArgumentException.
                 (str (name k) " must be a positive integer")))))
+
    (letfn [(read-block [xs]
              (loop [xs xs, n block-size, block (transient [])]
                (if (zero? n)
@@ -28,6 +31,7 @@
                      (recur (conj pending
                                   (future (into [] (filter pred) block)))
                             tail))))))
+
            (step [pending xs]
              (lazy-seq
                (loop [pending pending, xs xs]
@@ -40,4 +44,14 @@
                          (recur pending xs))))))))]
      (step clojure.lang.PersistentQueue/EMPTY coll))))
 
-(parallel-filter even? [4 1 2 4 3 6])
+(let [data (vec (range 100))
+      pred (fn [x]
+             (Thread/sleep 10)
+             (even? x))]
+  (println "Обычный filter:")
+  (println "Результат:" (time (vec (filter pred data))))
+
+  (println "Параллельный filter:")
+  (println "Результат:"
+           (time (vec (parallel-filter pred data
+                                       {:block-size 10 :parallelism 4})))))
